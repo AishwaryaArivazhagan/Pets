@@ -139,4 +139,5 @@ def decre(request,id):
     return redirect('viewcart')
 
 def beagle(request):
+    print('hi')
     return render(request,'beagle.html')
