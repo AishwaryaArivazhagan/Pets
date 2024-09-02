@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+ 
+</head>
+<body>
+    <div class="top">
+        <p>International Dog day special!! Get free lovin DOG food on orders above Rs.1299*</p>
+    </div>
+   <header>
+    {% if session is None %}
+    <nav>
+        <div class="Title">
+            <img src="{% static 'image/dog-bg.png' %}" alt="Paw">
+        </div>
+            <ul class="Navigation">
+                <li><a href="#home">Home</a></li> 
+                <div class="dropdown">
+                    <li><a href="#categories">Categories</a></li>
+                    <!-- <button class="dropbtn">Dropdown 
+                    </button> -->
+                    
+                    <div class="dropdown-content">
+                        {% for i in a %}
+                            <a href="{% url 'product' id=i.cid %}">{{i.name}}</a>
+                        {% endfor %}
+                    </div>    
+                </div> 
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#wishlist">Wishlist</a></li>
+                <li><a href ="{% url 'register' %}">Login / Register</a></li>
+                <li><a href="#account">Account</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        {% else %}
+        <nav>
+            <div class="Title">
+                <img src="{% static 'image/dog-bg.png' %}" alt="Paw">
+            </div>
+                <ul class="Navigation">
+                    <li><a href="{% url 'home' %}">Home</a></li> 
+                    <div class="dropdown">
+                        <li><a href="#categories">Categories</a></li>
+                        <!-- <button class="dropbtn">Dropdown 
+                        </button> -->
+                        
+                        <div class="dropdown-content">
+                            {% for i in a %}
+                                <a href="{% url 'product' id=i.cid %}">{{i.name}}</a>
+                            {% endfor %}
+                        </div>    
+                    </div> 
+                    <li><a href="{% url 'viewcart' %}">Cart</a></li>
+                    <li><a href="#wishlist">Wishlist</a></li>
+                    <!-- <li><a href ="{% url 'register' %}">Login / Register</a></li> -->
+                    <li><a href="#account">Account</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">{{session}}</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+            {% endif %}
+       </header>
+       <hr style="color: gray;">
+
+       <ul class="list-img">
+            {% for i in product %}
+            <a href="{% url 'shop_detail' id=i.pid %}"> 
+                <div class="li1" style="background-color: white;">
+                        <p class="blue"><strong>EXTRA</strong> 5% off on orders above ₹1199.<br>Use Code <strong>{{i.offer}}</strong></p>
+                        <img src="{{i.img.url}}"></li>
+                        <p class="name">{{i.name}}</p>
+                        <p class="price"><del style="color: gray; font-size: medium;">₹1099</del><strong style="font-size:x-large;"> {{i.price}}</strong></p>
+                        <!-- <button class="but"><a href="#cart" style="color: white; text-decoration: none;">Add to cart</a></button> -->
+                        <!-- <a class="but" href="" style="color: white; text-decoration: none;margin: 15px;">Add to cart</a> -->
+                </div>
+            </a>
+            {% endfor %}
+       </ul>
+    
+ </body>
+ </html>
+ {% load sweetify %}
+ {% sweetify %}

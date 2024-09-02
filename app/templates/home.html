@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+ 
+</head>
+<body>
+    <div class="top">
+        <p>International Dog day special!! Get free lovin DOG food on orders above Rs.1299*</p>
+    </div>
+   <header>
+    {% if session is None %}
+    <nav>
+        <div class="Title">
+            <img src="{% static 'image/dog-bg.png' %}" alt="Paw">
+        </div>
+            <ul class="Navigation">
+                <li><a href="#home">Home</a></li> 
+                <div class="dropdown">
+                    <li><a href="#categories">Categories</a></li>
+                    <!-- <button class="dropbtn">Dropdown 
+                    </button> -->
+                    
+                    <div class="dropdown-content">
+                        {% for i in a %}
+                            <a href="{% url 'product' id=i.cid %}">{{i.name}}</a>
+                        {% endfor %}
+                    </div>    
+                </div> 
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#wishlist">Wishlist</a></li>
+                <li><a href ="{% url 'register' %}">Login / Register</a></li>
+                <li><a href="#account">Account</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        {% else %}
+        <nav>
+            <div class="Title">
+                <img src="{% static 'image/dog-bg.png' %}" alt="Paw">
+            </div>
+                <ul class="Navigation">
+                    <li><a href="#home">Home</a></li> 
+                    <div class="dropdown">
+                        <li><a href="#categories">Categories</a></li>
+                        <!-- <button class="dropbtn">Dropdown 
+                        </button> -->
+                        
+                        <div class="dropdown-content">
+                            {% for i in a %}
+                                <a href="{% url 'product' id=i.cid %}">{{i.name}}</a>
+                            {% endfor %}
+                        </div>    
+                    </div> 
+                    <li><a href="{% url 'viewcart' %}">Cart</a></li>
+                    <li><a href="#wishlist">Wishlist</a></li>
+                    
+                    <li><a href="#account">Account</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">{{session}}</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+            {% endif %}
+       </header>
+       <hr style="color: gray;">
+{% block content %}
+       <marquee style="font-size: 1rem;font-family:cursive;">True LOVE has four PAWS <img src="{% static 'image/paww-removebg-preview.png' %}" style="width: 15px;height: 15px;transform: rotate(10deg);"></marquee>
+       <div class="ban">
+            <img src="{% static 'image/64801.jpg' %}" alt="pets">
+       </div>
+       
+       <div class="banner">
+            <img src="{% static 'image/toys.jpg' %}" alt="toys" style="width: 50%; border-radius:50px;">
+            <img src="{% static 'image/Banner-4.jpg' %}" alt="banner" style="width: 50%; border-radius:50px;">
+       </div>
+       <div class="h3">
+            <ul class="hii">
+                <li><h1>Top quality Dog food here!</h1></li>
+                <li> <img src="{% static 'image/paww-removebg-preview.png' %}" style="width: 30px; height: 30px;"></li>   
+            </ul>
+       </div>
+       
+       <ul class="list-img";>
+            {% for i in Data %}
+            <a href="{% url 'shop_detail' id=i.pid %}" style="text-decoration: none"> 
+                <!-- <form method="POST" action="{% url 'cart' id=i.pid %}"> -->
+                    <!-- {% csrf_token %} -->
+                <div class="li1" style="background-color: white;">
+                        <p class="blue" style="color: black;"><strong>EXTRA</strong> 5% off on orders above ₹999.<br>Use Code <strong>{{i.offer}}</strong></p>
+                        <img src="{{i.img.url}}"></li>
+                        <p class="name" style="color: black;">{{i.name}}</p>
+                        <p class="price"><del style="color: gray; font-size: medium;">₹899</del><strong style="font-size:x-large;color: black;"> {{i.price}}</strong></p>
+                        <!-- <button class="but"><a href="#cart" style="color: white; text-decoration: none;">Add to cart</a></button> -->
+                        <a class="but" href="{% url 'viewcart' %}" style="color: white; text-decoration: none;margin: 15px;">Add to cart</a>
+                </div>
+            <!-- </form> -->
+            </a>
+            {% endfor %}
+       </ul>
+      
+    <div class="h3">
+        <ul class="hii">
+            <li><h1>Top categories for your dog!</h1></li>
+        </ul>
+    </div>
+ {% endblock %}
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ <div class="foot">
+    <footer>
+        <p class="ft">KNOW YOUR BREEDS :<a href="{% url 'beagle' %}">Beagle</a> | <a>Daschund</a> | <a>Doberman</a> | <a>German Shepherd</a> | <a>Golden Retriever</a> | <a>Indie</a> | <a>Labrador</a> | <a>Pug</a> | <a>Rottweiler</a> | <a>Shih Tzu</a> | <a>Siberian Husky</a> | <a>Bengal</a> | <a>Himalayan</a> | <a>Indie</a> | <a>Maine Coon</a> | <a>Persian</a> | <a>Siamese</a></p>
+    </footer>
+</div>
+ </body>
+ </html>
+ {% load sweetify %}
+ {% sweetify %}

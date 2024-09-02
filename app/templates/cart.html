@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<!--   
+    <div>
+        <table id="tb">
+            <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+               
+            </tr>y
+            {% for i in carts %}
+            <tr>  
+                <td><img src="{{ i.products.img.url }}" style="width: 170px;height: 170px;"></td>
+                <td><h4>{{i.products.name}}</h4></td>
+                <td>{{i.products.price}}</td>
+                <form method="POST"  >
+                    {% csrf_token %}
+                        <td><a href="{% url 'decrement' id=i.products %}"><button  type="button" value="-"></a>
+                        <input type="text" name ="quan" value="{{i.quantity}}" style="width: 25px;text-align: center;">
+                        <a href="{% url 'incre' id=i.products %}"><button type="button" value='+'></a></td>
+                        <td>{{i.total}}</td>
+                </form>
+            </tr>  
+        {% endfor %}
+    </table>
+    </div> -->
+    <div class="bg-light py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-0"><a href="{% url 'home' %}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="site-section">
+        <div class="container">
+          <div class="row mb-5">
+            <form class="col-md-12" method="post">
+              <div class="site-blocks-table">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="product-thumbnail">Image</th>
+                      <th class="product-name">Product</th>
+                      <th class="product-price">Price</th>
+                      <th class="product-quantity">Quantity</th>
+                      <th class="product-total">Total</th>
+                      <th class="product-remove">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in carts %}
+                    <tr>
+                      <td class="product-thumbnail">
+                        <img src="{{ i.products.img.url }}" alt="Image" class="img-fluid" style="width: 170px;height: 170px;">
+                      </td>
+                      <td class="product-name">
+                        <h2 class="h5 text-black" style="width: 400px;">{{i.products.name}}</h2>
+                      </td>
+                      <td> &#8377;{{i.products.price}}</td>
+                      <form method="post">
+                      <td>
+                        <div class="input-group mb-3" style="max-width: 120px;">
+                          <div class="input-group-prepend">
+                            <a href="{% url 'decrement' id=i.products %}"><button class="btn btn-outline-primary" type="button">&minus;</button></a>
+                          </div>
+                          <input type="text" class="form-control text-center" value="{{ i.quantity }}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" style="width: 20px;">
+                          <div class  ="input-group-append">
+                              <a href="{% url 'incre' id=i.products %}"><button class="btn btn-outline-primary" type="button" >&plus;</button></a>
+                          </div>
+                        </div>
+                       </form>
+                      </td>
+
+                      <td> &#8377;{{i.total}}</td>
+                      <td><a href="" class="btn btn-primary btn-sm">X</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row mb-5">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <a href=""><button class="btn btn-outline-primary btn-sm btn-block">Clear Cart</button></a>
+                </div>
+                <div class="col-md-6">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 pl-5">
+              <div class="row justify-content-end">
+                <div class="col-md-7">
+                  <div class="row">
+                    <div class="col-md-12 text-right border-bottom mb-5">
+                      <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <span class="text-black">Subtotal</span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                      <strong class="text-black"> &#8377;{{ total_prod_price }}</strong>
+                    </div>
+                  </div>
+                  <div class="row mb-5">
+                    <div class="col-md-6">
+                      <span class="text-black">Total</span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                      <strong class="text-black"> &#8377;{{ total_prod_price }}</strong>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg py-3 btn-block" onclick=>Proceed To Checkout</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+</body>
+</html>

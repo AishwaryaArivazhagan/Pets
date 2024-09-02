@@ -1,0 +1,55 @@
+.reg{
+    width: 350px;
+    border: 0.5px solid rgb(185, 185, 185);
+    background-color: white ;
+    margin-left: 445px;
+}
+.reg h3{
+    margin-top: 30px;
+    margin-left: 100px;
+    font-family:cursive
+}
+.in{
+    padding: 10px 30px;
+    margin: 3px;
+    background-color: rgb(241, 241, 241);
+    border: 0.5px solid rgb(185, 185, 185);
+    margin-left: 57px;
+}
+.button{
+    background-color: #FFDBB5;
+    padding: 7px 25px;
+    margin: 30px;
+    border-radius: 5px;
+    color: black;
+    width: 233px;
+    margin-left: 57px;
+    border: 0.5px solid rgb(185, 185, 185);
+    font-family: cursive;
+}
+.down{
+    width: 290px;
+    border: 0.5px solid rgb(185, 185, 185);
+    background-color: white ;
+    margin-left: 445px;
+    margin-top: 15px;
+    padding: 10px 30px;
+    text-align: center;
+    font-family: cursive;
+}
+.log{
+    
+    width: 350px;
+    border: 0.5px solid rgb(185, 185, 185);
+    background-color: white ;
+    margin-left: 445px;
+    
+}
+.log h3{
+    margin-top: 30px;
+    margin-left: 100px;
+    font-family:cursive
+}
+.down .lin{
+    color: #a00045;
+}

@@ -1,0 +1,25 @@
+#tb{
+    border: 1px solid rgb(223, 221, 221);
+    margin: 5px;
+    padding: 10px;
+    width: 900px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+#tb td, #tb th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#tb tr:hover{
+    background-color: #e6e6e6;
+}
+#tb th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color:#FFDBB5;
+    color: black;
+}
+#tb td{
+    text-align:center;
+}

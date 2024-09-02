@@ -1,0 +1,15 @@
+.wrap{
+    display: flex;
+    flex-direction: row;
+}
+.img{
+    margin: 50px;
+    padding: 10px;
+}
+.text{
+    margin: 25px;
+    padding: 35px;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family:cursive;
+}
