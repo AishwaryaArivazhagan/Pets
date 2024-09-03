@@ -15,7 +15,7 @@ from pathlib import Path
 # Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
     'default': dj_database_url.config
-    (    default='postgresql://mysite_ai16_user:yypo50yxjzdcXkiuWpf3AgCKDdvO3b14@dpg-crbdbulsvqrc73evalt0-a:5432/mysite_ai16',
+    (    default='postgresql://postgres:1234@localhost:5432/mysite',
      
                                               conn_max_age=600    )} 
 # DATABASES = {
@@ -147,7 +147,7 @@ USE_TZ = True
 # Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 STATIC_URL = '/static/'
 # This production code might break development mode, so we check whether we're in DEBUG mode
