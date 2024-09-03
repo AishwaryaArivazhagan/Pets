@@ -15,7 +15,7 @@ from pathlib import Path
 # Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
     'default': dj_database_url.config
-    (    default='postgresql://postgres:1234@localhost:5432/mysite',
+    (    default='postgresql://postgres:1234@localhost:8000/mysite',
      
                                               conn_max_age=600    )} 
 # DATABASES = {
