@@ -22,7 +22,7 @@ from . views import *
 from app import views
 
 urlpatterns = [
-    path('home/',home,name='home'),
+    path('',home,name='home'),
     path('register/',register,name='register'),
     path('login/',login,name='login'),
     path('logout/',views.logout,name="logout"),
