@@ -21,14 +21,21 @@ def register(request):
         em=request.POST.get('email')
         pd=request.POST.get('pass')
         print(n,nu,em,pd)
+        user_mail=[]
 
-        obj=signup()
-        obj.nam=n
-        obj.numb=nu
-        obj.ema=em
-        obj.pwd=pd
-        obj.save()
-        return redirect('home')
+        d=signup.objects.all()
+        for i in d:
+            user_mail.append(i.ema)
+            if em not in user_mail:
+                obj=signup()
+                obj.nam=n
+                obj.numb=nu
+                obj.ema=em
+                obj.pwd=pd
+                obj.save()
+                return redirect('home')
+            else:
+                return render(request,'register.html',{'Error':'User already exist'})
     return render(request,'register.html')
 
 def login(request):
@@ -51,7 +58,7 @@ def logout(request):
     if 'name' in request.session:
         del request.session['name']
         return redirect('home')
-     
+
 def product(request,id):
     if 'name' in request.session:
         pr=Products.objects.filter(category_id=id)
