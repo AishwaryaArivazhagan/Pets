@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
- 
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
 </head>
 <body>
     <div class="top">
@@ -47,8 +47,7 @@
                     <li><a href="#home">Home</a></li> 
                     <div class="dropdown">
                         <li><a href="#categories">Categories</a></li>
-                        <!-- <button class="dropbtn">Dropdown 
-                        </button> -->
+                     
                         
                         <div class="dropdown-content">
                             {% for i in a %}
@@ -70,10 +69,16 @@
        <hr style="color: gray;">
 {% block content %}
        <marquee style="font-size: 1rem;font-family:cursive;">True LOVE has four PAWS <img src="{% static 'image/paww-removebg-preview.png' %}" style="width: 15px;height: 15px;transform: rotate(10deg);"></marquee>
-       <div class="ban">
-            <img src="{% static 'image/64801.jpg' %}" alt="pets">
-       </div>
+       <div class="img-fluid">
+            <img src="{% static 'image/new_b.png' %}" alt="pets" style="width: 40%; height: 600px;">
        
+       <div class="content-wrapper col-md-7 p-5 mb-5">
+        <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20 % off</div>
+        <h2 class="banner-title display-1 fw-normal">Best destination for <span class="text-primary">your pets</span></h2>
+        <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded">Shop now
+           </a>
+        </div>
+        </div> 
        <div class="banner">
             <img src="{% static 'image/toys.jpg' %}" alt="toys" style="width: 50%; border-radius:50px;">
             <img src="{% static 'image/Banner-4.jpg' %}" alt="banner" style="width: 50%; border-radius:50px;">

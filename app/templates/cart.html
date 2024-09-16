@@ -86,7 +86,7 @@
                       </td>
 
                       <td> &#8377;{{i.total}}</td>
-                      <td><a href="" class="btn btn-primary btn-sm">X</a></td>
+                      <td><a href="{% url 'deletecartoneitem' id=i.products %}" class="btn btn-primary btn-sm">X</a></td>
                     </tr>
                   {% endfor %}
                   </tbody>

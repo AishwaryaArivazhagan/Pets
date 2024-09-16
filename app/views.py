@@ -141,3 +141,12 @@ def decre(request,id):
 def beagle(request):
     print('hi')
     return render(request,'beagle.html')
+
+def remove_cart(request,id):
+    p = Products.objects.get(name=id)
+    c = Cart.objects.get(products=p.pid)
+    c.delete()
+    print(p)
+    print(c)
+    return redirect('viewcart')
+

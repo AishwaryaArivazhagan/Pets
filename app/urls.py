@@ -33,6 +33,7 @@ urlpatterns = [
     path('viewcart/',views.view_cart,name='viewcart'),
     path('decrement/<str:id>',views.decre,name="decrement"),
     path('incre/<str:id>',views.incre,name="incre"),
+    path('shop_details/view_cart/delete/<str:id>',views.remove_cart,name='deletecartoneitem'),
 
 
      
